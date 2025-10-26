@@ -117,7 +117,10 @@ export default function Gallery({ items }: GalleryProps) {
                 <button
                   onClick={() => {
                     setSelectedItem(null);
-                    window.location.href = '/request';
+                    // Navigate to request page after modal closes
+                    setTimeout(() => {
+                      window.location.href = '/request';
+                    }, 100);
                   }}
                   className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
                 >
