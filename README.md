@@ -1,25 +1,25 @@
-# Design by Kenny - 3D Print Portfolio Website
+# Design By Kenny - 3D Print Portfolio Website
 
-## 📋 Overview
+A professional portfolio website for showcasing 3D prints and accepting custom print requests. Built with Next.js 14, TypeScript, and Tailwind CSS.
 
-A modern, mobile-first portfolio website for showcasing 3D prints and accepting custom print requests. Optimized for QR code access in a work lab environment with a focus on performance, usability, and professional design.
+## ✨ Features
 
-### Key Features
-
-- **Portfolio Gallery**: Responsive grid layout showcasing 3D print projects
-- **Custom Request Form**: Easy-to-use form for submitting custom print requests
-- **Mobile-First Design**: Optimized for QR code scanning and mobile devices
-- **Email Integration**: Automated notifications for requests
+- **Responsive Portfolio Gallery**: Beautiful grid layout showcasing 3D print projects
+- **Modal/Lightbox View**: Detailed view of each print with specifications
+- **Custom Request Form**: Easy-to-use form for submitting custom print requests with validation
+- **Email Integration**: Form submissions ready for email integration (EmailJS or custom API)
+- **Mobile-First Design**: Optimized for mobile devices and QR code access
+- **SEO Optimized**: Meta tags and proper semantic HTML
+- **Image Optimization**: Next.js Image component for fast loading
 - **Performance Optimized**: Fast loading with Next.js and optimized images
 
-### Technology Stack
+## 🛠️ Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 14 with App Router
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Deployment**: Vercel
-- **Email**: Resend or EmailJS
-- **Image Optimization**: Next.js Image component
+- **Email**: EmailJS ready (optional configuration)
+- **Deployment**: Vercel-ready
 
 ---
 
@@ -85,163 +85,104 @@ This repository contains comprehensive design documentation for implementing the
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18.x or later
+- Node.js 18.x or higher
 - npm or yarn
-- Git
 
-### Setup Instructions
+### Installation
 
+1. Clone the repository:
 ```bash
-# Clone the repository
 git clone https://github.com/kmsull/DesignByKennySite.git
 cd DesignByKennySite
+```
 
-# Initialize Next.js project (when ready to implement)
-npx create-next-app@latest . --typescript --tailwind --app --eslint
-
-# Install dependencies
+2. Install dependencies:
+```bash
 npm install
+```
 
-# Copy environment variables template
+3. (Optional) Configure email integration:
+```bash
 cp .env.example .env.local
+```
+Edit `.env.local` with your EmailJS credentials or email service details.
 
-# Configure your environment variables
-# Edit .env.local with your API keys
-
-# Start development server
+4. Run the development server:
+```bash
 npm run dev
 ```
 
-Visit `http://localhost:3000` to see your site.
-
----
-
-## 📖 Implementation Phases
-
-### Phase 1: Core Structure (Week 1)
-- Layout and navigation
-- Type definitions and data
-- Portfolio gallery
-
-### Phase 2: Interactive Features (Week 2)
-- Portfolio details modal
-- Filtering and search
-- Gallery polish
-
-### Phase 3: Request Form (Week 3)
-- Form structure
-- Form validation
-- Form submission and email
-
-### Phase 4: Email & Polish (Week 4)
-- Email integration
-- Performance optimization
-- Final polish and testing
-
-**See [IMPLEMENTATION.md](./IMPLEMENTATION.md) for detailed implementation timeline.**
-
----
-
-## 🎨 Design Principles
-
-### Mobile-First
-- Optimized for QR code access
-- Touch-friendly interface
-- Responsive design from 320px to 1920px+
-
-### Performance
-- Core Web Vitals targets:
-  - LCP < 2.5s
-  - FID < 100ms
-  - CLS < 0.1
-- Optimized images with WebP/AVIF
-- Code splitting and lazy loading
-
-### Accessibility
-- WCAG 2.1 AA compliance
-- Keyboard navigation
-- Screen reader support
-- Semantic HTML
-
-### Professional Aesthetic
-- Clean, modern design
-- Consistent spacing and typography
-- High-quality imagery
-- Smooth animations and transitions
-
----
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📁 Project Structure
 
 ```
-/
-├── app/                      # Next.js App Router
-│   ├── layout.tsx           # Root layout
-│   ├── page.tsx             # Portfolio homepage
-│   ├── request/             # Request form page
-│   └── api/                 # API routes
-├── components/              # React components
-│   ├── Navigation.tsx
-│   ├── Gallery.tsx
-│   ├── PortfolioCard.tsx
-│   ├── RequestForm.tsx
-│   └── ...
-├── lib/                     # Utilities and types
-│   ├── types.ts
-│   ├── data.ts
-│   ├── validation.ts
-│   └── email.ts
-├── public/                  # Static assets
-│   └── images/
-├── docs/                    # Documentation
-│   ├── DESIGN.md
-│   ├── DEPLOYMENT.md
-│   ├── SAMPLE-DATA.md
-│   ├── USER-FLOWS.md
-│   ├── IMPLEMENTATION.md
-│   └── FUTURE-ENHANCEMENTS.md
-└── README.md
+├── app/
+│   ├── api/
+│   │   └── submit-request/     # API route for form submissions
+│   ├── request/
+│   │   ├── success/            # Success confirmation page
+│   │   └── page.tsx            # Request form page
+│   ├── globals.css             # Global styles
+│   ├── layout.tsx              # Root layout with navigation
+│   └── page.tsx                # Portfolio homepage
+├── components/
+│   ├── Footer.tsx              # Footer component
+│   ├── Gallery.tsx             # Portfolio gallery with modal
+│   ├── Navigation.tsx          # Header navigation with mobile menu
+│   └── RequestForm.tsx         # Request form with validation
+├── lib/
+│   └── portfolioData.ts        # Sample portfolio items data
+└── public/
+    └── images/                 # Static images
 ```
+
+## 🔧 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
 
 ---
 
-## 🔧 Development
+## 🎨 Customization
 
-### Available Scripts
+### Adding Portfolio Items
 
-```bash
-# Start development server
-npm run dev
+Edit `lib/portfolioData.ts` to add or modify portfolio items:
 
-# Build for production
-npm run build
-
-# Start production server
-npm start
-
-# Run linter
-npm run lint
-
-# Fix linting issues
-npm run lint:fix
-
-# Type checking
-npm run type-check
-
-# Format code
-npm run format
+```typescript
+{
+  id: 'unique-id',
+  title: 'Print Title',
+  description: 'Detailed description',
+  image: 'image-url',
+  material: 'PLA/PETG/etc',
+  size: 'Dimensions',
+  category: 'Category',
+  printTime: 'Estimated time'
+}
 ```
 
-### Code Quality
+### Email Integration
 
-- **ESLint**: Code linting and standards
-- **Prettier**: Code formatting
-- **TypeScript**: Type safety
-- **Husky**: Pre-commit hooks (optional)
+To enable email functionality:
+
+1. Sign up for [EmailJS](https://www.emailjs.com/) or use your preferred email service
+2. Update environment variables in `.env.local`
+3. Configure the email code in `app/api/submit-request/route.ts`
+
+### Styling
+
+The site uses Tailwind CSS. Customize colors and styles in:
+- `tailwind.config.ts` - Theme configuration
+- `app/globals.css` - Global CSS variables
+- Individual components - Component-specific styles
 
 ---
 
@@ -249,101 +190,129 @@ npm run format
 
 ### Vercel (Recommended)
 
-1. Push code to GitHub
-2. Import project in Vercel
-3. Configure environment variables
-4. Deploy
+1. Push your code to GitHub
+2. Import your repository on [Vercel](https://vercel.com)
+3. Add environment variables if using email integration
+4. Deploy!
 
-**See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete deployment guide.**
+**See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment guide with SSL, security headers, and CI/CD setup.**
+
+### Other Platforms
+
+The site can be deployed to any platform that supports Next.js:
+- Netlify
+- AWS Amplify
+- Railway
+- DigitalOcean App Platform
+
+Build command: `npm run build`  
+Output directory: `.next`
 
 ### Environment Variables
 
-Required environment variables:
+For production deployment, set these environment variables (if using email):
 
-```env
-# Email Service
-RESEND_API_KEY=your_api_key
+- `NEXT_PUBLIC_EMAILJS_SERVICE_ID` - EmailJS service ID
+- `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` - EmailJS template ID
+- `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` - EmailJS public key
+- `RECIPIENT_EMAIL` - Email address to receive requests
 
-# Site Configuration
-NEXT_PUBLIC_SITE_URL=https://yourdomain.com
-NEXT_PUBLIC_ADMIN_EMAIL=admin@yourdomain.com
-```
+## 📱 Mobile QR Code Access
+
+The site is optimized for mobile access via QR codes. Features include:
+- Fast loading times
+- Touch-friendly interface
+- Mobile-optimized forms
+- Responsive images
 
 ---
 
+## 📚 Design Documentation
+
+This repository includes comprehensive design documentation for the website architecture and future enhancements:
+
+### Documentation Files
+
+1. **[DESIGN.md](./DESIGN.md)** (41 KB) - Complete design specification
+   - Technology stack justification
+   - Site architecture and navigation
+   - User experience design principles
+   - Portfolio gallery design
+   - Request form design
+   - Responsive design specifications
+   - Performance optimization strategies
+
+2. **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Deployment and configuration guide
+   - Vercel deployment setup
+   - SSL and security headers
+   - Environment variables
+   - CI/CD workflows
+
+3. **[SAMPLE-DATA.md](./SAMPLE-DATA.md)** - Data structures and schemas
+   - TypeScript type definitions
+   - Zod validation schemas
+   - Email templates
+   - API response schemas
+
+4. **[USER-FLOWS.md](./USER-FLOWS.md)** (40 KB) - User flows and wireframes
+   - User journey diagrams
+   - ASCII wireframes (mobile/desktop)
+   - Interaction patterns
+
+5. **[IMPLEMENTATION.md](./IMPLEMENTATION.md)** - Implementation guide
+   - 4-week phased implementation plan
+   - Testing strategy
+   - Performance optimization
+
+6. **[FUTURE-ENHANCEMENTS.md](./FUTURE-ENHANCEMENTS.md)** - Future roadmap
+   - Admin dashboard plans
+   - Payment integration
+   - 3D model viewer
+   - User accounts
+   - Priority matrix and cost estimates
+
 ## 📊 Features Roadmap
 
-### ✅ Phase 1 (MVP)
-- Portfolio gallery
-- Request form
-- Email notifications
+### ✅ Phase 1 (MVP) - Complete
+- Portfolio gallery with modal view
+- Request form with validation
+- Email integration ready
 - Responsive design
 - Mobile optimization
 
-### 🔄 Phase 2 (Enhancement)
+### 🔄 Phase 2 (Enhancement) - Planned
 - Admin dashboard
 - Request status tracking
 - Content management system
 - SEO improvements
 
-### 🔮 Phase 3 (Advanced)
+### 🔮 Phase 3 (Advanced) - Future
 - Payment integration
 - User accounts
 - Review system
 - 3D model viewer
 
 **See [FUTURE-ENHANCEMENTS.md](./FUTURE-ENHANCEMENTS.md) for complete roadmap.**
-
----
-
 ## 🤝 Contributing
 
-This is a design documentation repository. To contribute:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
 
----
-
 ## 📄 License
 
-This project documentation is provided as-is for the Design by Kenny portfolio website.
+ISC
 
----
+## 📞 Support
 
-## 📞 Contact
+For issues or questions, please open an issue on GitHub.
 
-For questions or support regarding this documentation:
-
-- **Project**: Design by Kenny 3D Print Portfolio
 - **Repository**: [github.com/kmsull/DesignByKennySite](https://github.com/kmsull/DesignByKennySite)
 
 ---
 
-## 🙏 Acknowledgments
-
-- **Next.js**: React framework for production
-- **Vercel**: Deployment platform
-- **Tailwind CSS**: Utility-first CSS framework
-- **Resend**: Modern email API
-
----
-
-## 📝 Documentation Index
-
-| Document | Description | Key Topics |
-|----------|-------------|------------|
-| [DESIGN.md](./DESIGN.md) | Complete design specification | Architecture, UX, Components |
-| [DEPLOYMENT.md](./DEPLOYMENT.md) | Deployment guide | Vercel, SSL, CI/CD |
-| [SAMPLE-DATA.md](./SAMPLE-DATA.md) | Data structures | Types, Schemas, Templates |
-| [USER-FLOWS.md](./USER-FLOWS.md) | User flows and wireframes | Flows, Wireframes, Interactions |
-| [IMPLEMENTATION.md](./IMPLEMENTATION.md) | Implementation guide | Setup, Timeline, Testing |
-| [FUTURE-ENHANCEMENTS.md](./FUTURE-ENHANCEMENTS.md) | Future roadmap | Features, Integrations, Costs |
-
----
-
 **Version**: 1.0.0  
-**Last Updated**: January 2024  
-**Status**: Design Documentation Complete
+**Status**: Live Website + Design Documentation
